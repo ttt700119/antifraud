@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>國小高年級網路防詐與網址防偽工具箱</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font (Inter & Noto Sans TC) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        },
+                        shield: {
+                            green: '#10b981',
+                            yellow: '#f59e0b',
+                            red: '#ef4444',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Top Banner & Header -->
+    <header class="bg-gradient-to-r from-indigo-700 via-indigo-600 to-blue-600 text-white shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-6xl mx-auto px-4 py-8 sm:py-12 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold tracking-wide text-indigo-100 mb-3 border border-white/20">
+                        <i class="fa-solid fa-graduation-cap"></i> 適合國小高年級（五年級、六年級）資訊與素養課堂
+                    </div>
+                    <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-2">
+                        網路防詐與網址防偽查詢工具箱
+                    </h1>
+                    <p class="text-indigo-100 text-sm sm:text-base max-w-2xl">
+                        學會 <span class="bg-amber-400 text-slate-900 font-bold px-2 py-0.5 rounded">「一看、二複製、三查詢」</span> 關鍵心法，點擊連結前先辨識，保護個資不踩雷！
+                    </p>
+                </div>
+                <div class="flex-shrink-0 bg-white/10 p-4 rounded-2xl border border-white/20 text-center backdrop-blur-md">
+                    <div class="text-3xl font-black text-amber-300 mb-1"><i class="fa-solid fa-shield-halved"></i> 防詐 3 步驟</div>
+                    <div class="text-xs text-indigo-100 flex gap-2">
+                        <span class="bg-indigo-900/50 px-2 py-1 rounded">1. 檢查拼法</span>
+                        <span class="bg-indigo-900/50 px-2 py-1 rounded">2. 複製網址</span>
+                        <span class="bg-indigo-900/50 px-2 py-1 rounded">3. 官方查驗</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-12 flex-grow w-full">
+
+        <!-- 區塊一：課堂教學心法（引導卡片） -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                    <i class="fa-solid fa-lightbulb text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">課堂防詐心法：安全防護三部曲</h2>
+                    <p class="text-xs sm:text-sm text-slate-600">收到陌生簡訊、通訊軟體或社群平台傳來的網址時，請先執行這三個步驟：</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">STEP 1</div>
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">一看：檢查網址細節</h3>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>是否有安全加密通訊協定（<code class="bg-slate-100 px-1 rounded text-rose-600">https://</code>）與鎖頭圖示。</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>仔細看英文字母拼法，注意用數字 <code class="bg-slate-100 px-1 rounded text-rose-600">0</code> 替代 <code class="bg-slate-100 px-1 rounded text-rose-600">O</code> 或 <code class="bg-slate-100 px-1 rounded text-rose-600">1</code> 替代 <code class="bg-slate-100 px-1 rounded text-rose-600">l</code> 的陷阱。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">STEP 2</div>
+                    <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-copy"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">二複製：不直接點擊</h3>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>切勿直接長按或點擊不明連結，防止自動開啟惡意安裝檔或釣魚頁面。</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>長按網址並選取<b>「複製」</b>，準備貼到查驗工具進行核對。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">STEP 3</div>
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-magnifying-glass font-bold"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2">三查詢：利用公信平台</h3>
+                    <ul class="text-xs sm:text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>將複製的網址貼到<b>數發部詐騙通報網</b>或 <b>165 全民防騙網</b>。</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                            <span>對照查詢結果，確認是否為可疑網站或已知通報案例。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 區塊二：六年級防詐課堂實作演練工具（互動小功能） -->
+        <section class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-md relative">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-8">
+                    <span class="bg-indigo-100 text-indigo-700 font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider">實機小演練</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">網址防偽檢測練習框</h2>
+                    <p class="text-slate-600 text-sm mt-1">在下方框框輸入或選擇貼上可疑網址，點擊「分析網址特徵」來找找看裡面的疑點！</p>
+                </div>
+
+                <!-- 範例按鈕 -->
+                <div class="mb-4">
+                    <label class="block text-xs font-bold text-slate-500 mb-2">點擊以下測試範例快速帶入：</label>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <button onclick="setSample('https://g00gle-tw.cc/login')" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition font-mono border border-slate-300">
+                            🚨 假冒 Google (g00gle-tw.cc)
+                        </button>
+                        <button onclick="setSample('http://free-game-gift.xyz/claim')" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition font-mono border border-slate-300">
+                            ⚠️ 無加密連結 (http://...xyz)
+                        </button>
+                        <button onclick="setSample('https://eliteracy.edu.tw/')" class="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 rounded-lg text-emerald-700 transition font-mono border border-emerald-300">
+                            ✅ 官方教育部網址 (eliteracy.edu.tw)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 輸入框區域 -->
+                <div class="space-y-4">
+                    <div class="relative">
+                        <input type="text" id="urlInput" placeholder="請在此貼上或輸入網址（例如：https://...）" class="w-full px-4 py-3.5 pr-28 text-sm sm:text-base border-2 border-slate-300 rounded-2xl focus:outline-none focus:border-indigo-500 font-mono transition">
+                        <button onclick="analyzeUrl()" class="absolute right-2 top-2 bottom-2 px-5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition flex items-center gap-1 shadow-sm">
+                            <i class="fa-solid fa-microscope"></i> 分析網址
+                        </button>
+                    </div>
+
+                    <!-- 分析結果顯示框 -->
+                    <div id="analysisResult" class="hidden rounded-2xl p-5 border transition-all">
+                        <!-- JS 動態寫入內容 -->
+                    </div>
+
+                    <!-- 轉跳捷徑區 -->
+                    <div class="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 border-t border-slate-100">
+                        <span>想要進一步做真實資料庫查證嗎？</span>
+                        <div class="flex gap-2">
+                            <button onclick="copyAndForward('https://fraudbuster.digiat.org.tw/accessibility/')" class="px-3 py-1.5 bg-indigo-50 text-indigo-700 rounded-lg font-bold hover:bg-indigo-100 transition flex items-center gap-1">
+                                <i class="fa-solid fa-copy"></i> 複製並帶去「數發部通報網」
+                            </button>
+                            <button onclick="copyAndForward('https://165.npa.gov.tw')" class="px-3 py-1.5 bg-amber-50 text-amber-700 rounded-lg font-bold hover:bg-amber-100 transition flex items-center gap-1">
+                                <i class="fa-solid fa-shield-cat"></i> 複製並帶去「165網站」
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 區塊三：即時網址防偽與防詐查詢工具（核心功能區） -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                    <i class="fa-solid fa-toolbox text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">核心工具箱：公信力查驗與通報平台</h2>
+                    <p class="text-xs sm:text-sm text-slate-600">點擊傳送門可直接開啟官方查詢工具，在課堂上體驗真實的網址查證過程：</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- 工具卡片 1 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center font-black">
+                                    數
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">數發部 — 網路詐騙通報查詢網</h3>
+                                    <span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded border border-blue-200">政府官方 AI 平台</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                            數位發展部推出的打詐通報與查詢平台。學生可貼上可疑網址、LINE 連結或訊息，透過 AI 與政府資料庫自動比對是否為詐騙網站。
+                        </p>
+                        <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-500 mb-4 border border-slate-100">
+                            <strong><i class="fa-solid fa-circle-info text-blue-500"></i> 課堂適用情境：</strong> 複製收到的疑慮網址後，貼上系統進行即時 AI 智慧分析與通報。
+                        </div>
+                    </div>
+                    <div class="flex gap-2 pt-2 border-t border-slate-100">
+                        <a href="https://fraudbuster.digiat.org.tw/accessibility/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2">
+                            <span>前往數發部通報網</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 工具卡片 2 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-rose-100 text-rose-700 rounded-xl flex items-center justify-center font-black">
+                                    165
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">內政部警政署 — 165 全民防騙網</h3>
+                                    <span class="text-xs bg-rose-50 text-rose-700 font-semibold px-2 py-0.5 rounded border border-rose-200">警政署權威資料庫</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                            台灣權威的反詐騙諮詢與檢舉平台。提供關鍵字查詢，可檢索可疑電話號碼、LINE ID、銀行帳戶以及高風險詐騙網站清單。
+                        </p>
+                        <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-500 mb-4 border border-slate-100">
+                            <strong><i class="fa-solid fa-circle-info text-rose-500"></i> 課堂適用情境：</strong> 查詢可疑商家電話、遊戲點數賣家 LINE ID 或檢視最新高詐騙風險網址公告。
+                        </div>
+                    </div>
+                    <div class="flex gap-2 pt-2 border-t border-slate-100">
+                        <a href="https://165.npa.gov.tw" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2.5 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2">
+                            <span>前往 165 全民防騙網</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 工具卡片 3 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center font-black">
+                                    My
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">MyGoPen 麥擱騙 (事實查核)</h3>
+                                    <span class="text-xs bg-emerald-50 text-emerald-700 font-semibold px-2 py-0.5 rounded border border-emerald-200">民間專業查核平台</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                            獲國際事實查核聯盟（IFCN）認證的民間查核組織。專門破解網路謠言、假新聞、假贈獎活動及釣魚連結，提供詳細解說文章。
+                        </p>
+                        <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-500 mb-4 border border-slate-100">
+                            <strong><i class="fa-solid fa-circle-info text-emerald-500"></i> 課堂適用情境：</strong> 查證「免費領取遊戲貼圖/虛寶」等網路謠言與詐騙文章分析。
+                        </div>
+                    </div>
+                    <div class="flex gap-2 pt-2 border-t border-slate-100">
+                        <a href="https://www.mygopen.com" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2">
+                            <span>前往 MyGoPen 查驗</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 工具卡片 4 -->
+                <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm card-hover flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between gap-4 mb-3">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center font-black">
+                                    趨
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-slate-900">趨勢科技 — 防詐達人</h3>
+                                    <span class="text-xs bg-amber-50 text-amber-700 font-semibold px-2 py-0.5 rounded border border-amber-200">資安大廠輔助工具</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-600 mb-4 leading-relaxed">
+                            知名資安防毒大廠開發的輔助防詐驗證服務，可檢測網址是否包含惡意釣魚攻擊或密碼竊取代碼。
+                        </p>
+                        <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-500 mb-4 border border-slate-100">
+                            <strong><i class="fa-solid fa-circle-info text-amber-500"></i> 課堂適用情境：</strong> 示範如何透過自動化資安引擎快速審核可疑登入網址。
+                        </div>
+                    </div>
+                    <div class="flex gap-2 pt-2 border-t border-slate-100">
+                        <a href="https://getgopack.com/antifraud" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl text-xs sm:text-sm transition flex items-center justify-center gap-2">
+                            <span>前往防詐達人</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 區塊四：互動體驗與學習資源（改為橫式寬卡片橫排佈局） -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                    <i class="fa-solid fa-gamepad text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-xl font-bold text-slate-900">互動體驗與學習資源</h2>
+                    <p class="text-xs sm:text-sm text-slate-600">透過遊戲與主題實作，增進學生資安素養與假訊息辨識能力：</p>
+                </div>
+            </div>
+
+            <!-- 橫式單欄列表結構 (flex flex-col gap-4) -->
+            <div class="flex flex-col gap-4">
+
+                <!-- 資源 1: Google Interland -->
+                <div class="bg-gradient-to-r from-indigo-900 via-indigo-800 to-slate-900 text-white rounded-2xl p-6 shadow-md card-hover relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div class="flex-grow space-y-2 relative z-10">
+                        <div class="inline-block px-2.5 py-1 bg-amber-400 text-slate-900 rounded-md text-xs font-bold">
+                            <i class="fa-brands fa-google"></i> 免費互動網頁遊戲
+                        </div>
+                        <h3 class="text-xl font-bold">Google 網路安全歷險記 (Interland)</h3>
+                        <p class="text-indigo-200 text-xs sm:text-sm max-w-3xl leading-relaxed">
+                            Google 專為學童打造的 3D 冒險遊戲。學生可以在四座安全小島中學習識別釣魚郵件、保護密碼、避開網路陷阱與預防詐騙。
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0 relative z-10 w-full sm:w-auto">
+                        <a href="https://beinternetawesome.withgoogle.com/en_us/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl text-sm transition w-full sm:w-auto shadow-md">
+                            <i class="fa-solid fa-play"></i> 開始遊戲體驗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 資源 2: 台灣事實查核教育基金會 -->
+                <div class="bg-gradient-to-r from-slate-800 via-slate-800 to-slate-900 text-white rounded-2xl p-6 shadow-md card-hover relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div class="flex-grow space-y-2 relative z-10">
+                        <div class="inline-block px-2.5 py-1 bg-blue-400 text-slate-900 rounded-md text-xs font-bold">
+                            媒體識讀與查核
+                        </div>
+                        <h3 class="text-xl font-bold">台灣事實查核教育基金會 — 教育專區</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm max-w-3xl leading-relaxed">
+                            權威的民間事實查核機構。提供豐富的真實網路謠言、變造圖片解密與防詐專題，帶領學生培養判讀資訊真偽的能力。
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0 relative z-10 w-full sm:w-auto">
+                        <a href="https://tfc-taiwan.org.tw" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl text-sm transition w-full sm:w-auto shadow-md">
+                            <i class="fa-solid fa-magnifying-glass-chart"></i> 前往學習專區
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 資源 3: 教育部中小學數位素養教育資源網 -->
+                <div class="bg-gradient-to-r from-emerald-800 via-teal-800 to-slate-900 text-white rounded-2xl p-6 shadow-md card-hover relative overflow-hidden flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div class="flex-grow space-y-2 relative z-10">
+                        <div class="inline-block px-2.5 py-1 bg-emerald-400 text-slate-900 rounded-md text-xs font-bold">
+                            教育部官方專區 (2025新版)
+                        </div>
+                        <h3 class="text-xl font-bold">教育部 — 中小學數位素養教育資源網</h3>
+                        <p class="text-emerald-100 text-xs sm:text-sm max-w-3xl leading-relaxed">
+                            專為國民中小學設計的教育部官方數位素養學習網。包含互動動畫、情境學習單與線上自我評量測驗，適合課堂自主點閱與施測。
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0 relative z-10 w-full sm:w-auto">
+                        <a href="https://eliteracy.edu.tw/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl text-sm transition w-full sm:w-auto shadow-md">
+                            <i class="fa-solid fa-book-open"></i> 前往官方資源
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 mt-12 py-8 text-center text-xs">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p class="text-slate-300 font-semibold">國小高年級（六年級）網路防詐與網址防偽教育輔助網頁</p>
+            <p>本頁面整合數位發展部、內政部警政署 165、MyGoPen 等公信機構公開資源，僅供校園教學與防衛宣導免費使用。</p>
+            <p class="text-slate-500 pt-2">© 2026 校園資訊素養教學小組 · 共同守護學童網路安全</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 邏輯：網址防偽檢測演練 -->
+    <script>
+        // 設定範例網址到輸入框
+        function setSample(url) {
+            document.getElementById('urlInput').value = url;
+            analyzeUrl();
+        }
+
+        // 複製網址並提示轉跳
+        function copyAndForward(targetUrl) {
+            const inputVal = document.getElementById('urlInput').value.trim();
+            const textToCopy = inputVal || "https://g00gle-tw.cc";
+            
+            // 使用經典的複製方式
+            const tempInput = document.createElement("input");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            alert("【已成功複製網址】\n" + textToCopy + "\n\n即將為您開啟權威查驗平台，請在開啟的網頁中選擇貼上進行查詢！");
+            window.open(targetUrl, '_blank');
+        }
+
+        // 分析網址特徵
+        function analyzeUrl() {
+            const input = document.getElementById('urlInput').value.trim();
+            const resultBox = document.getElementById('analysisResult');
+            
+            if (!input) {
+                alert("請先輸入或選擇一個網址喔！");
+                return;
+            }
+
+            resultBox.classList.remove('hidden');
+
+            let isHttps = false;
+            let hasNumberReplace = false;
+            let isSuspiciousDomain = false;
+            let isGovDomain = false;
+            let warnings = [];
+
+            // 1. 檢查 HTTPS
+            if (input.toLowerCase().startsWith('https://')) {
+                isHttps = true;
+            } else {
+                warnings.push("<b>缺少安全傳輸協定 (HTTPS)：</b> 網址開頭非 https://，資料傳輸可能未經過加密，極具資安風險。");
+            }
+
+            // 2. 檢查數字替代文字陷阱 (如 g00gle, PayPa1)
+            const lowUrl = input.toLowerCase();
+            if (lowUrl.includes('g00gle') || lowUrl.includes('paypa1') || lowUrl.includes('fline') || lowUrl.includes('0101')) {
+                hasNumberReplace = true;
+                warnings.push("<b>疑似字元替代陷阱：</b> 發現利用數字「0」替代字母「O」，或數字「1」替代字母「l」的常見釣魚拼法！");
+            }
+
+            // 3. 檢查怪異副檔名與頂級域名 (.xyz, .cc, .top)
+            if (lowUrl.includes('.xyz') || lowUrl.includes('.cc') || lowUrl.includes('.top') || lowUrl.includes('.work') || lowUrl.includes('-tw.')) {
+                isSuspiciousDomain = true;
+                warnings.push("<b>高風險域名結尾：</b> 使用了免費或廉價的域名結尾（如 .xyz, .cc），常被詐騙集團用作臨時釣魚網站。");
+            }
+
+            // 4. 檢查政府與教育官方域名 (.gov.tw, .edu.tw)
+            if (lowUrl.includes('.gov.tw') || lowUrl.includes('.edu.tw')) {
+                isGovDomain = true;
+            }
+
+            // 組合輸出結果 HTML
+            let html = '';
+
+            if (isGovDomain && isHttps && !hasNumberReplace) {
+                resultBox.className = "rounded-2xl p-5 border bg-emerald-50 border-emerald-200 text-emerald-900";
+                html = `
+                    <div class="flex items-start gap-3">
+                        <div class="p-2 bg-emerald-500 text-white rounded-xl text-lg font-bold"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h4 class="font-bold text-emerald-900 text-base mb-1">判讀結果：特徵相符為政府/教育官方網站 (.gov.tw / .edu.tw)</h4>
+                            <p class="text-xs sm:text-sm text-emerald-800 leading-relaxed mb-2">
+                                該網址使用了我國政府（.gov.tw）或學校（.edu.tw）專用域名，且具備 HTTPS 加密保護。
+                            </p>
+                            <div class="text-xs text-emerald-700 bg-white/60 p-2.5 rounded-lg border border-emerald-200">
+                                💡 <strong>資訊小知識：</strong> 台灣政府機關的網址結尾一定是 <code class="bg-emerald-100 px-1 rounded font-bold">.gov.tw</code>，學校則是 <code class="bg-emerald-100 px-1 rounded font-bold">.edu.tw</code>，這類域名需要嚴格審核才能申請！
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (warnings.length > 0) {
+                resultBox.className = "rounded-2xl p-5 border bg-rose-50 border-rose-200 text-rose-900";
+                let warningList = warnings.map(w => `<li class="flex items-start gap-1.5"><i class="fa-solid fa-triangle-exclamation text-rose-500 mt-1"></i><span>${w}</span></li>`).join('');
+                html = `
+                    <div class="flex items-start gap-3">
+                        <div class="p-2 bg-rose-500 text-white rounded-xl text-lg font-bold"><i class="fa-solid fa-shield-virus"></i></div>
+                        <div class="w-full">
+                            <h4 class="font-bold text-rose-900 text-base mb-1">判讀警訊：檢測到 ${warnings.length} 項可疑網址特徵！</h4>
+                            <ul class="text-xs sm:text-sm space-y-1.5 my-3 text-rose-800">
+                                ${warningList}
+                            </ul>
+                            <div class="text-xs bg-white/80 p-3 rounded-xl border border-rose-200 text-slate-700 space-y-1">
+                                <strong class="text-rose-700"><i class="fa-solid fa-hand"></i> 國小高年級應對指南：</strong>
+                                <p>千萬不要在此網站輸入任何姓名、電話、帳號或密碼！請按下上面的「複製並帶去通報網」按鈕進行防詐查詢。</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultBox.className = "rounded-2xl p-5 border bg-amber-50 border-amber-200 text-amber-900";
+                html = `
+                    <div class="flex items-start gap-3">
+                        <div class="p-2 bg-amber-500 text-white rounded-xl text-lg font-bold"><i class="fa-solid fa-circle-question"></i></div>
+                        <div>
+                            <h4 class="font-bold text-amber-900 text-base mb-1">判讀提醒：此為一般商業或個人網址</h4>
+                            <p class="text-xs sm:text-sm text-amber-800 leading-relaxed mb-2">
+                                雖然具備基本格式，但一般的商業網站（.com、.net 等）任何人皆可付費申請。
+                            </p>
+                            <div class="text-xs bg-white/70 p-2.5 rounded-lg border border-amber-200 text-slate-700">
+                                💡 <strong>課堂提醒：</strong> 如果這個網址聲稱可以「免費領取遊戲點數/虛寶」，請務必貼到 165 或數發部通報網做確認！
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            resultBox.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
